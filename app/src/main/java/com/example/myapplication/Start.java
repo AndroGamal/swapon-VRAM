@@ -12,7 +12,7 @@ public class Start extends BroadcastReceiver {
         try {
             //all
             Process p=Runtime.getRuntime().exec("su");
-            p.getOutputStream().write("sysctl vm.swappiness=100\n".getBytes());s
+            p.getOutputStream().write("sysctl vm.swappiness=100\n".getBytes());
             p.getOutputStream().write("dd if=/dev/zero of=storage/extSdCard/swapfile bs=1024 count=75000\n".getBytes());
             p.getOutputStream().write("mkswap storage/extSdCard/swapfile\n".getBytes());
             p.getOutputStream().write("swapon -p -1 storage/extSdCard/swapfile\n".getBytes());
