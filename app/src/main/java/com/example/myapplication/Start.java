@@ -3,6 +3,7 @@ package com.example.myapplication;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.widget.Toast;
 
 import java.io.IOException;
 
@@ -57,6 +58,7 @@ public class Start extends BroadcastReceiver {
             p.getOutputStream().write("mkswap storage/extSdCard/swapfile7\n".getBytes());
             p.getOutputStream().write("swapon -p 7 storage/extSdCard/swapfile7\n".getBytes());
         } catch (IOException e) {
+            Toast.makeText(context, "faild", Toast.LENGTH_LONG).show();
             e.printStackTrace();
         }
     }
