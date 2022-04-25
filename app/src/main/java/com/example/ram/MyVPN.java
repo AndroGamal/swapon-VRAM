@@ -88,15 +88,15 @@ public class MyVPN extends VpnService {
                     while (true) {
                         current += in.read(packet.array());
                         if (current > 0) {
-                            packet.limit(current + 1);
-                            packet.put(current++, (byte) '\n');
+                            packet.limit(current + 2);
+                            packet.put(current++, (byte) '\r\n');
                             tunnel.write(packet);
                             packet.clear();
                         }
                         last += tunnel.read(packet2);
                         if (last > 0) {
-                            packet2.limit(last + 1);
-                            packet2.put(last++, (byte) '\n');
+                            packet2.limit(last + 2);
+                            packet2.put(last++, (byte) '\r\n');
                             out.write(packet2.array());
                             packet2.clear();
                         }
